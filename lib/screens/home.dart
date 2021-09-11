@@ -33,7 +33,6 @@ class _HomeState extends State<Home> {
         shadowColor: Colors.black.withOpacity(0.11));
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F9F9),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -53,33 +52,15 @@ class _HomeState extends State<Home> {
             label: 'Profile',
           ),
         ],
-        backgroundColor: Colors.white,
-        elevation: 0,
-        unselectedLabelStyle:
-            const TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
-        showUnselectedLabels: true,
-        unselectedItemColor: const Color(0x80979797),
-        selectedLabelStyle: const TextStyle(
-            color: kPrimaryColor, fontWeight: FontWeight.w600, fontSize: 15),
-        currentIndex: _selectedIndex,
-        selectedItemColor: kPrimaryColor,
         onTap: _onItemTapped,
       ),
       appBar: AppBar(
-          shadowColor: Colors.black.withOpacity(0.14),
-          elevation: 4,
-          centerTitle: true,
-          title: Image.asset("assets/logo.png"),
-          actions: const [
-            NotificationBell(notificationCount: 2),
-            SizedBox(width: 25)
-          ],
-          backgroundColor: Colors.white,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(16),
-            ),
-          )),
+        title: Image.asset("assets/logo.png"),
+        actions: const [
+          NotificationBell(notificationCount: 5),
+          SizedBox(width: 25)
+        ],
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
