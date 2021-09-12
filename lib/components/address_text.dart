@@ -15,7 +15,7 @@ class AddressText extends StatelessWidget {
     double heightFactor = size.height / 954;
     double widthFactor = size.width / 414;
     return Padding(
-      padding: const EdgeInsets.only(right: 40),
+      padding: const EdgeInsets.only(right: 64),
       child: Column(
         children: [
           Row(
