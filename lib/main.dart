@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jetiffy/screens/home.dart';
+import 'package:jetiffy/screens/incoming_order.dart';
 
 import 'constants.dart';
 
@@ -46,7 +47,7 @@ class Jetiffy extends StatelessWidget {
                 fontSize: 15),
             selectedItemColor: kPrimaryColor,
           )),
-      home: const Home(),
+      home: const IncomingOrder(),
     );
   }
 }

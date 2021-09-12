@@ -90,15 +90,18 @@ class _HomeState extends State<Home> {
                 ElevatedButton(
                     style: buttonStyle,
                     onPressed: () {},
-                    child: Row(children: const [
-                      Text(
+                    child: Row(children:  [
+                      const Text(
                         "Online",
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.w400,
                             fontSize: 15),
                       ),
-                      Text(
+Container(
+  
+),
+                      const Text(
                         "Offline",
                         style: TextStyle(
                             color: Colors.black,
