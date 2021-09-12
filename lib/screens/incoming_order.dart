@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:jetiffy/components/address_text.dart';
 import 'package:jetiffy/components/back_widget.dart';
 import 'package:jetiffy/components/time_distance.dart';
+import 'package:jetiffy/screens/begin_trip.dart';
 import '../constants.dart';
 
 class IncomingOrder extends StatefulWidget {
+  static const routeName = "/incoming-order";
+
   const IncomingOrder({Key? key}) : super(key: key);
 
   @override
@@ -22,17 +25,20 @@ class _IncomingOrderState extends State<IncomingOrder> {
         elevation: 6,
         textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
         minimumSize: Size(173 * widthFactor, 47 * heightFactor));
+
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        title: const Text(
-          "Incoming Order",
-          style: TextStyle(
-              fontWeight: FontWeight.w700, fontSize: 22.5, color: Colors.black),
-        ),
-        leading: const BackWidget(),
-      ),
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          centerTitle: false,
+          title: const Text(
+            "Incoming Order",
+            style: TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: 22.5,
+                color: Colors.black),
+          ),
+          leading: const BackWidget()),
       body: Stack(
         children: [
           Container(),
@@ -55,26 +61,14 @@ class _IncomingOrderState extends State<IncomingOrder> {
                           alignment: Alignment.topCenter,
                           child: SizedBox(
                             width: 40,
-                            child:
-                                Divider(color: Color(0xFFF2F2F2), thickness: 3),
+                            child: Divider(
+                              thickness: 3,
+                              color: Color(0xFFF2F2F2),
+                            ),
                           )),
                       Align(
                         alignment: Alignment.topRight,
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              top: 44 * heightFactor, right: 32 * widthFactor),
-                          child: Container(
-                            height: 40,
-                            width: 40,
-                            decoration: const BoxDecoration(
-                                color: kPrimaryColor, shape: BoxShape.circle),
-                            child: const Center(
-                                child: Icon(
-                              Icons.call,
-                              color: Colors.white,
-                            )),
-                          ),
-                        ),
+                        child: _callButton(heightFactor, widthFactor),
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
@@ -111,7 +105,10 @@ class _IncomingOrderState extends State<IncomingOrder> {
                                     ),
                                     child: const Text("Reject")),
                                 ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, BeginTrip.routeName);
+                                    },
                                     style: buttonStyle.copyWith(
                                       shadowColor: MaterialStateProperty.all(
                                           kBlackVariation.withOpacity(0.34)),
@@ -130,6 +127,23 @@ class _IncomingOrderState extends State<IncomingOrder> {
                 ),
               ))
         ],
+      ),
+    );
+  }
+
+  Padding _callButton(double heightFactor, double widthFactor) {
+    return Padding(
+      padding: EdgeInsets.only(top: 44 * heightFactor, right: 32 * widthFactor),
+      child: Container(
+        height: 40,
+        width: 40,
+        decoration:
+            const BoxDecoration(color: kPrimaryColor, shape: BoxShape.circle),
+        child: const Center(
+            child: Icon(
+          Icons.call,
+          color: Colors.white,
+        )),
       ),
     );
   }
