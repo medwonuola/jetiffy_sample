@@ -7,6 +7,8 @@ import 'package:jetiffy/components/ratings_card.dart';
 import '../constants.dart';
 
 class Home extends StatefulWidget {
+  static const routeName = "/";
+
   const Home({Key? key}) : super(key: key);
 
   @override
@@ -90,7 +92,7 @@ class _HomeState extends State<Home> {
                 ElevatedButton(
                     style: buttonStyle,
                     onPressed: () {},
-                    child: Row(children:  [
+                    child: Row(children: [
                       const Text(
                         "Online",
                         style: TextStyle(
@@ -98,9 +100,7 @@ class _HomeState extends State<Home> {
                             fontWeight: FontWeight.w400,
                             fontSize: 15),
                       ),
-Container(
-  
-),
+                      Container(),
                       const Text(
                         "Offline",
                         style: TextStyle(
