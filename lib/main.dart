@@ -3,6 +3,7 @@ import 'package:jetiffy/screens/home.dart';
 import 'package:jetiffy/screens/incoming_order.dart';
 
 import 'constants.dart';
+import 'screens/begin_trip.dart';
 
 void main() {
   runApp(const Jetiffy());
@@ -17,15 +18,13 @@ class Jetiffy extends StatelessWidget {
       title: 'Jetiffy',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor:  const Color(0xFFF9F9F9),
+          scaffoldBackgroundColor: const Color(0xFFF9F9F9),
           primarySwatch: Colors.green,
           primaryColor: Colors.white,
           backgroundColor: Colors.white,
-
           appBarTheme: AppBarTheme(
             shadowColor: Colors.black.withOpacity(0.14),
             elevation: 4,
-
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
                 bottom: Radius.circular(16),
@@ -47,7 +46,19 @@ class Jetiffy extends StatelessWidget {
                 fontSize: 15),
             selectedItemColor: kPrimaryColor,
           )),
-      home: const IncomingOrder(),
+      initialRoute: IncomingOrder.routeName,
+      routes: {
+        Home.routeName: (context) => const Home(),
+        IncomingOrder.routeName: (context) => const IncomingOrder(),
+        BeginTrip.routeName: (context) => const BeginTrip()
+      },
+      onUnknownRoute: (RouteSettings settings) {
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (BuildContext context) => Scaffold(
+              appBar: AppBar(), body: const Center(child: Text('Not Found'))),
+        );
+      },
     );
   }
 }
