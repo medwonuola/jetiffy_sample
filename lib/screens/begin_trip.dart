@@ -38,7 +38,6 @@ class _BeginTripState extends State<BeginTrip> {
           leading: const BackWidget()),
       body: Stack(
         children: [
-          Container(),
           Align(
               alignment: Alignment.bottomCenter,
               child: Card(
@@ -69,6 +68,47 @@ class _BeginTripState extends State<BeginTrip> {
                             vertical: 40 * heightFactor),
                         child: Column(
                           children: [
+                            const Spacer(),
+                            Card(
+
+                              elevation: 4,
+                              shadowColor: Colors.black.withOpacity(0.2),
+                              shape: const RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8))),
+                              child: SizedBox(
+                                height: 151 * heightFactor,
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: const [
+                                    Text(
+                                      "04 m : 18s",
+                                      style: TextStyle(
+                                          fontSize: 22.5,
+                                          fontWeight: FontWeight.w700,
+                                          color: kPrimaryColor),
+                                    ),
+                                    Text("Omobolaji",
+                                        style: TextStyle(
+                                            color: Color(0xFF3E4958),
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w400)),
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 24),
+                                      child: Text(
+                                          "7 Prince Ibrahim Odofin Street Idado Estate Igbo-Efon",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: Color(0xFF3C3A3A),
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 15)),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
                             const Spacer(),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
