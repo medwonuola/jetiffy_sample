@@ -38,6 +38,11 @@ class _BeginTripState extends State<BeginTrip> {
           leading: const BackWidget()),
       body: Stack(
         children: [
+
+          Positioned(
+              top: 300 * heightFactor,
+              right: 48,
+              child: Image.asset("assets/route.png")),
           Align(
               alignment: Alignment.bottomCenter,
               child: Card(
@@ -62,10 +67,11 @@ class _BeginTripState extends State<BeginTrip> {
                               color: Color(0xFFF2F2F2),
                             ),
                           )),
+
                       Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: 24 * widthFactor,
-                            vertical: 40 * heightFactor),
+                            vertical: 38 * heightFactor),
                         child: Column(
                           children: [
                             const Spacer(),
@@ -137,7 +143,11 @@ class _BeginTripState extends State<BeginTrip> {
                             )
                           ],
                         ),
-                      )
+                      ),
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: _callButton(heightFactor, widthFactor),
+                      ),
                     ],
                   ),
                 ),
@@ -149,7 +159,7 @@ class _BeginTripState extends State<BeginTrip> {
 
   Padding _callButton(double heightFactor, double widthFactor) {
     return Padding(
-      padding: EdgeInsets.only(top: 44 * heightFactor, right: 32 * widthFactor),
+      padding: EdgeInsets.only(top: 64 * heightFactor, right: 49 * widthFactor),
       child: Container(
         height: 40,
         width: 40,

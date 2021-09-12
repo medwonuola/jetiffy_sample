@@ -41,7 +41,36 @@ class _IncomingOrderState extends State<IncomingOrder> {
           leading: const BackWidget()),
       body: Stack(
         children: [
-          Container(),
+           Positioned(
+             left: 110 * widthFactor,
+            top: 50 * heightFactor,
+            child: const Card(
+              color: kPrimaryColor,
+              elevation: 4,
+              shadowColor: kPrimaryColor,
+              shape: StadiumBorder(),
+              child: SizedBox(
+                height: 29,
+                width: 70,
+                child: Center(
+                  child: Text(
+                    "7 min",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                        color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+              top: 100 * heightFactor,
+              width: size.width,
+              child: Center(
+                child: Image.asset("assets/root.png",
+                    height: 158 * heightFactor, width: 186 * widthFactor),
+              )),
           Align(
               alignment: Alignment.bottomCenter,
               child: Card(
