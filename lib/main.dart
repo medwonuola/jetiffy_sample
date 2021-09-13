@@ -18,6 +18,7 @@ class Jetiffy extends StatelessWidget {
       title: 'Jetiffy',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: "Poppins",
           scaffoldBackgroundColor: const Color(0xFFF9F9F9),
           primarySwatch: Colors.green,
           primaryColor: Colors.white,
