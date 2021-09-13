@@ -38,7 +38,6 @@ class _BeginTripState extends State<BeginTrip> {
           leading: const BackWidget()),
       body: Stack(
         children: [
-
           Positioned(
               top: 300 * heightFactor,
               right: 48,
@@ -67,7 +66,6 @@ class _BeginTripState extends State<BeginTrip> {
                               color: Color(0xFFF2F2F2),
                             ),
                           )),
-
                       Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: 24 * widthFactor,
@@ -76,7 +74,6 @@ class _BeginTripState extends State<BeginTrip> {
                           children: [
                             const Spacer(),
                             Card(
-
                               elevation: 4,
                               shadowColor: Colors.black.withOpacity(0.2),
                               shape: const RoundedRectangleBorder(
