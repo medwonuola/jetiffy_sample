@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:jetiffy/components/earnings_bonus.dart';
 import 'package:jetiffy/components/notification_bell.dart';
 import 'package:jetiffy/components/ratings_card.dart';
+import 'package:jetiffy/screens/incoming_order.dart';
 
 import '../constants.dart';
 
@@ -16,22 +17,19 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    double heightFactor = size.height / 954;
+    double widthFactor = size.width / 414;
+
     final buttonStyle = ElevatedButton.styleFrom(
         primary: Colors.white,
         elevation: 15,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(8))),
-        minimumSize: const Size(158, 55),
+        minimumSize: Size(158 * widthFactor, 55),
+        maximumSize: Size(183 * widthFactor, 55),
         shadowColor: Colors.black.withOpacity(0.11));
 
     return Scaffold(
@@ -54,7 +52,6 @@ class _HomeState extends State<Home> {
             label: 'Profile',
           ),
         ],
-        onTap: _onItemTapped,
       ),
       appBar: AppBar(
         title: Image.asset("assets/logo.png"),
@@ -69,16 +66,18 @@ class _HomeState extends State<Home> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 16),
+              SizedBox(height: 16 * heightFactor),
               const Text("Welcome Tolu,",
                   style: TextStyle(
                       color: Color(0xFF979797),
                       fontWeight: FontWeight.w600,
                       fontSize: 15)),
-              const SizedBox(height: 16),
+              SizedBox(height: 16 * heightFactor),
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, IncomingOrder.routeName);
+                    },
                     style: buttonStyle,
                     icon: const Icon(Icons.radio_button_checked,
                         color: Colors.black),
@@ -92,25 +91,42 @@ class _HomeState extends State<Home> {
                 ElevatedButton(
                     style: buttonStyle,
                     onPressed: () {},
-                    child: Row(children: [
-                      const Text(
-                        "Online",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 15),
-                      ),
-                      Container(),
-                      const Text(
-                        "Offline",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 15),
-                      )
-                    ]))
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            "Online",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 15),
+                          ),
+                          Container(
+                              width: 37,
+                              height: 20,
+                              decoration: const BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(218))),
+                              child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Container(
+                                      margin: const EdgeInsets.only(left: 4),
+                                      height: 14,
+                                      width: 13,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.white,
+                                          shape: BoxShape.circle)))),
+                          const Text(
+                            "Offline",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 15),
+                          )
+                        ]))
               ]),
-              const SizedBox(height: 24),
+              SizedBox(height: 24 * heightFactor),
               Card(
                 elevation: 15,
                 shadowColor: Colors.black.withOpacity(0.11),
@@ -155,9 +171,11 @@ class _HomeState extends State<Home> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          _fundsAction(kBlackVariation, "Transfer funds",
+                          _fundsAction(
+                              kBlackVariation, "Transfer funds", widthFactor,
                               rotation: 5.6),
-                          _fundsAction(kPrimaryColor, "Fund Wallet",
+                          _fundsAction(
+                              kPrimaryColor, "Fund Wallet", widthFactor,
                               rotation: 2.3),
                         ],
                       )
@@ -165,11 +183,11 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: 24 * heightFactor),
               _cashOut(),
-              const SizedBox(height: 24),
+              SizedBox(height: 24 * heightFactor),
               const EarningsAndBonus(earnings: "5,000.00", bonus: "2,050.30"),
-              const SizedBox(height: 24),
+              SizedBox(height: 24 * heightFactor),
               const RatingsCard(ratings: 5.0)
             ],
           ),
@@ -178,13 +196,13 @@ class _HomeState extends State<Home> {
     );
   }
 
-  TextButton _fundsAction(Color color, String title,
+  TextButton _fundsAction(Color color, String title, double widthFactor,
       {required double rotation, AsyncCallback? onPressed}) {
     return TextButton(
         style: TextButton.styleFrom(
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(266))),
-            minimumSize: const Size(134.75, 34),
+            minimumSize: Size(134.75 * widthFactor, 34),
             primary: color,
             backgroundColor: color.withOpacity(0.1)),
         onPressed: onPressed ?? () {},
@@ -207,37 +225,40 @@ class _HomeState extends State<Home> {
       shadowColor: Colors.black.withOpacity(0.11),
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(8))),
-      child: SizedBox(
-        height: 59,
-        width: double.infinity,
-        child: Padding(
-          padding: const EdgeInsets.only(right: 24, left: 68),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text(
-                "Cash out",
-                style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white),
-              ),
-              Container(
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white.withOpacity(0.3)),
-                  child: const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Center(
-                      child: Icon(
-                        Icons.arrow_forward_ios,
-                        size: 14,
-                        color: Colors.white,
+      child: InkWell(
+        onTap: () {},
+        child: SizedBox(
+          height: 59,
+          width: double.infinity,
+          child: Padding(
+            padding: const EdgeInsets.only(right: 24, left: 68),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Text(
+                  "Cash out",
+                  style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white),
+                ),
+                Container(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white.withOpacity(0.3)),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Center(
+                        child: Icon(
+                          Icons.arrow_forward_ios,
+                          size: 14,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                  ))
-            ],
+                    ))
+              ],
+            ),
           ),
         ),
       ),
