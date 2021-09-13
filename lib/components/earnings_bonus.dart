@@ -50,7 +50,7 @@ class EarningsAndBonus extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         Text(
-          "₦ $value",
+          "N $value",
           style: const TextStyle(
               fontWeight: FontWeight.w400,
               fontSize: 22.5,

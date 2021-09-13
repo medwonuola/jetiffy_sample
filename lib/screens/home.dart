@@ -146,7 +146,7 @@ class _HomeState extends State<Home> {
                             style: TextStyle(
                                 fontSize: 12, fontWeight: FontWeight.w400),
                           ),
-                          Text("₦ 5,000.00",
+                          Text("N 5,000.00",
                               style: TextStyle(
                                   color: kBlackVariation,
                                   fontSize: 16,
@@ -161,7 +161,7 @@ class _HomeState extends State<Home> {
                             style: TextStyle(
                                 fontSize: 12, fontWeight: FontWeight.w400),
                           ),
-                          Text("₦ 2,000.00",
+                          Text("N 2,000.00",
                               style: TextStyle(
                                   color: kBlackVariation,
                                   fontSize: 16,

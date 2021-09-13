@@ -81,7 +81,8 @@ class _IncomingOrderState extends State<IncomingOrder> {
                       Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: 24 * widthFactor,
-                            vertical: 40 * heightFactor),
+
+                            vertical: 30 * heightFactor),
                         child: Column(
                           children: [
                             const AddressText(
@@ -89,7 +90,7 @@ class _IncomingOrderState extends State<IncomingOrder> {
                               address:
                                   "7 Prince Ibrahim Odofin Street Idado Estate Igbo-Efon",
                             ),
-                            const SizedBox(height: 8),
+                             SizedBox(height: 8 * heightFactor),
                             const AddressText(
                               title: "Receiver",
                               address:
@@ -98,9 +99,9 @@ class _IncomingOrderState extends State<IncomingOrder> {
                             const SizedBox(height: 3),
                             const TimeAndDistance(
                                 time: "20 secs", distance: "2.8 km"),
-                            const SizedBox(height: 25),
+                             SizedBox(height: 25 * heightFactor),
                             const TimerIndicator(),
-                            const SizedBox(height: 25),
+                             SizedBox(height: 25 * heightFactor),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
