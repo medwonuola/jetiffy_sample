@@ -46,7 +46,7 @@ class Jetiffy extends StatelessWidget {
                 fontSize: 15),
             selectedItemColor: kPrimaryColor,
           )),
-      initialRoute: IncomingOrder.routeName,
+      initialRoute: Home.routeName,
       routes: {
         Home.routeName: (context) => const Home(),
         IncomingOrder.routeName: (context) => const IncomingOrder(),
