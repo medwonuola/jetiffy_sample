@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class BackWidget extends StatelessWidget {
-  final VoidCallback? onPressed;
 
   const BackWidget({
     Key? key,
-    this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onPressed ?? () {},
+      onTap: () {
+        Navigator.pop(context);
+      },
       child: Container(
           margin: const EdgeInsets.all(12),
           height: 34,

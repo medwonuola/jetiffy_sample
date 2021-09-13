@@ -117,7 +117,9 @@ class _BeginTripState extends State<BeginTrip> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
                                     style: buttonStyle.copyWith(
                                       shadowColor: MaterialStateProperty.all(
                                           kRedVariation.withOpacity(0.34)),
