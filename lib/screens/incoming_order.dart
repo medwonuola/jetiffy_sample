@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jetiffy/components/address_text.dart';
 import 'package:jetiffy/components/back_widget.dart';
 import 'package:jetiffy/components/time_distance.dart';
+import 'package:jetiffy/components/timer.dart';
 import 'package:jetiffy/screens/begin_trip.dart';
 import '../constants.dart';
 
@@ -41,36 +42,17 @@ class _IncomingOrderState extends State<IncomingOrder> {
           leading: const BackWidget()),
       body: Stack(
         children: [
-           Positioned(
-             left: 110 * widthFactor,
+          Positioned(
+            left: 110 * widthFactor,
             top: 50 * heightFactor,
-            child: const Card(
-              color: kPrimaryColor,
-              elevation: 4,
-              shadowColor: kPrimaryColor,
-              shape: StadiumBorder(),
-              child: SizedBox(
-                height: 29,
-                width: 70,
-                child: Center(
-                  child: Text(
-                    "7 min",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 15,
-                        color: Colors.white),
-                  ),
-                ),
-              ),
-            ),
+            child: _routeTime(),
           ),
           Positioned(
               top: 100 * heightFactor,
               width: size.width,
               child: Center(
-                child: Image.asset("assets/root.png",
-                    height: 158 * heightFactor, width: 186 * widthFactor),
-              )),
+                  child: Image.asset("assets/root.png",
+                      height: 158 * heightFactor, width: 186 * widthFactor))),
           Align(
               alignment: Alignment.bottomCenter,
               child: Card(
@@ -89,12 +71,9 @@ class _IncomingOrderState extends State<IncomingOrder> {
                       const Align(
                           alignment: Alignment.topCenter,
                           child: SizedBox(
-                            width: 40,
-                            child: Divider(
-                              thickness: 3,
-                              color: Color(0xFFF2F2F2),
-                            ),
-                          )),
+                              width: 40,
+                              child: Divider(
+                                  thickness: 3, color: Color(0xFFF2F2F2)))),
                       Align(
                         alignment: Alignment.topRight,
                         child: _callButton(heightFactor, widthFactor),
@@ -119,7 +98,9 @@ class _IncomingOrderState extends State<IncomingOrder> {
                             const SizedBox(height: 3),
                             const TimeAndDistance(
                                 time: "20 secs", distance: "2.8 km"),
-                            const Spacer(),
+                            const SizedBox(height: 25),
+                            const TimerIndicator(),
+                            const SizedBox(height: 25),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -158,6 +139,23 @@ class _IncomingOrderState extends State<IncomingOrder> {
         ],
       ),
     );
+  }
+
+  Card _routeTime() {
+    return const Card(
+        color: kPrimaryColor,
+        elevation: 4,
+        shadowColor: kPrimaryColor,
+        shape: StadiumBorder(),
+        child: SizedBox(
+            height: 29,
+            width: 70,
+            child: Center(
+                child: Text("7 min",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                        color: Colors.white)))));
   }
 
   Padding _callButton(double heightFactor, double widthFactor) {
