@@ -11,8 +11,6 @@ class TimeAndDistance extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    double heightFactor = size.height / 954;
     return Card(
       elevation: 15,
       color: kPrimaryColor,
@@ -20,7 +18,7 @@ class TimeAndDistance extends StatelessWidget {
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(8))),
       child: SizedBox(
-        height: 96 * heightFactor,
+        height: 96 ,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -29,7 +27,7 @@ class TimeAndDistance extends StatelessWidget {
             Container(
               color: Colors.white,
               width: 1,
-              height: 64 * heightFactor,
+              height: 64 ,
             ),
             buildColumn("Distance", distance),
           ],
