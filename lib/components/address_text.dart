@@ -20,7 +20,7 @@ class AddressText extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.add_circle_outline_outlined,
+              const Icon(Icons.my_location_rounded,
                   size: 13, color: kPrimaryColor),
               SizedBox(width: 10 * widthFactor),
               Text(
